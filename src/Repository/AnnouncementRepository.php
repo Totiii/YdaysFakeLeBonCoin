@@ -46,5 +46,6 @@ class AnnouncementRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
+
     */
 }

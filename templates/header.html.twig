@@ -1,51 +1,47 @@
 {% if app.user %}
-    <div class="container">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="home">The Good Corner</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="mx-auto order-0">
-                <button type="button" class="btn btn-outline-secondary navbar-brand mx-auto">Add an announcement</button>
-            </div>
-            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{ app.user.Firstname }} {{ app.user.Name }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_logout') }}">Sign out</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="home">The Good Corner</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mx-auto order-0">
+            <button type="button" class="btn btn-outline-secondary navbar-brand mx-auto"><i class="fas fa-plus-square"></i> Add an announcement</button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">{{ app.user.Firstname }} {{ app.user.Name }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_logout') }}">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 {% else %}
-    <div class="container">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="home">The Good Corner</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="mx-auto order-0">
-                <button type="button" class="btn btn-outline-secondary navbar-brand mx-auto">Add an announcement</button>
-            </div>
-            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_register') }}">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_login') }}">Login</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="home">The Good Corner</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mx-auto order-0">
+            <button type="button" class="btn btn-outline-secondary navbar-brand mx-auto">Add an announcement</button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_register') }}">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_login') }}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 {% endif %}

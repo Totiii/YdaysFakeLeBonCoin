@@ -66,6 +66,11 @@ class Announcement
      */
     private $users;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $adress;
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
@@ -216,6 +221,18 @@ class Announcement
             $this->users->removeElement($user);
             $user->removeFavorite($this);
         }
+
+        return $this;
+    }
+
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+    public function setAdress(string $adress): self
+    {
+        $this->adress = $adress;
 
         return $this;
     }
