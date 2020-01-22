@@ -1,0 +1,161 @@
+{%  extends 'base.html.twig' %}
+{%  block title %}{% endblock %}
+
+{%  block body %}
+    {{ render(controller('App\\Controller\\HomeController::navBar', {} )) }}
+
+<div class="container mt-5">
+    <div class="row">
+        <h3 class="ml-3">Add an announcement</h3>
+    </div>
+</div>
+<div class="container mt-3 border p-4">
+    <div class="row">
+        <h3 class="ml-3">Your announcement</h3>
+    </div>
+    <hr/>
+    <div class="row">
+        <h5 class="ml-3">Categories</h5>
+    </div>
+    <div class="row">
+        <div class="col mt-4 col-md-5">
+            <div class="dropdown">
+                <select class="form-control">
+                    {% for category in categories %}
+                        <option>{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <h5 class="ml-3">Title</h5>
+    </div>
+    <div class="row mt-4">
+        <div class="col col-md-5">
+            <input type="text" class="form-control">
+        </div>
+    </div>
+    <div class="row mt-4">
+        <h5 class="ml-3">Description</h5>
+    </div>
+    <div class="row mt-4">
+        <div class="col col-md-5">
+            <textarea class="form-control" rows="3"></textarea>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <h5 class="ml-3">Price</h5>
+    </div>
+    <div class="row mt-4">
+        <div class="col col-md-5">
+            <input type="text" class="form-control">
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="form-group">
+            <label class="ml-3">Pictures</label>
+            <input type="file" class="form-control-file ml-3" id="gallery-photo-add">
+            <input type="file" class="form-control-file ml-3" id="gallery-photo2-add">
+            <input type="file" class="form-control-file ml-3" id="gallery-photo3-add">
+        </div>
+    </div>
+    <div class="row gallery">
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script>
+        $(function() {
+        // Multiple images preview in browser
+        var imagesPreview1 = function(input, placeToInsertImagePreview) {
+
+        if (input.files) {
+        var filesAmount = input.files.length;
+
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                $('.gallery').append('<div class="col pic1">');
+
+                reader.onload = function(event) {
+                    $($.parseHTML('<img class="img-fluid ml-2">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                }
+
+                $('.gallery').append('</div>');
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+        };
+
+        $('#gallery-photo-add').on('change', function() {
+            imagesPreview1(this, 'div.pic1');
+        });
+        });
+
+        $(function() {
+            // Multiple images preview in browser
+            var imagesPreview2 = function(input, placeToInsertImagePreview) {
+
+                if (input.files) {
+                    var filesAmount = input.files.length;
+
+                    for (i = 0; i < filesAmount; i++) {
+                        var reader = new FileReader();
+
+                        $('.gallery').append('<div class="col pic2">');
+
+                        reader.onload = function(event) {
+                            $($.parseHTML('<img class="img-fluid ml-2">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                        }
+
+                        $('.gallery').append('</div>');
+
+                        reader.readAsDataURL(input.files[i]);
+                    }
+                }
+            };
+
+            $('#gallery-photo2-add').on('change', function() {
+                imagesPreview2(this, 'div.pic2');
+            });
+        });
+
+        $(function() {
+            // Multiple images preview in browser
+            var imagesPreview3 = function(input, placeToInsertImagePreview) {
+
+                if (input.files) {
+                    var filesAmount = input.files.length;
+
+                    for (i = 0; i < filesAmount; i++) {
+                        var reader = new FileReader();
+
+                        $('.gallery').append('<div class="col pic3">');
+
+                        reader.onload = function(event) {
+                            $($.parseHTML('<img class="img-fluid ml-2">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                        }
+
+                        $('.gallery').append('</div>');
+
+                        reader.readAsDataURL(input.files[i]);
+                    }
+                }
+            };
+        $('#gallery-photo3-add').on('change', function() {
+            imagesPreview3(this, 'div.pic3');
+        });
+
+        });
+    </script>
+{% endblock %}
+
+
+
