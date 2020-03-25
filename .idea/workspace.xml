@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9937cb1e-ba5e-4daf-bfe1-79624bdd8378" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/YdaysFakeLeBonCoin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/YdaysFakeLeBonCoin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="9937cb1e-ba5e-4daf-bfe1-79624bdd8378" name="Default Changelist" comment="To many changes to tell them">
+      <change afterPath="$PROJECT_DIR$/public/assets/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/no-preview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/announcement/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/image/addImages.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AnnouncementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AnnouncementController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Announcement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Announcement.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Picture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Picture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/AnnouncementType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AnnouncementType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ImageType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ImageType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/announcement/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/addImages.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/announcement/announcement.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/announcement/announcement.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/city/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/image/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/picture/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/profile.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,9 +186,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Ydays/YdaysProject" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/image" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -188,12 +199,16 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Ydays\YdaysFakeLeBonCoin\templates\image" />
+      <recent name="F:\Ydays\YdaysFakeLeBonCoin\templates\announcement" />
       <recent name="F:\Ydays\YdaysFakeLeBonCoin\public\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Ydays\YdaysFakeLeBonCoin\templates\announcement" />
       <recent name="F:\Ydays\YdaysFakeLeBonCoin\public\assets" />
       <recent name="F:\Ydays\YdaysFakeLeBonCoin\public" />
       <recent name="F:\Ydays\YdaysFakeLeBonCoin\templates" />
@@ -222,7 +237,15 @@
       <workItem from="1581323792889" duration="22000" />
       <workItem from="1581332091785" duration="185000" />
       <workItem from="1581408402403" duration="617000" />
-      <workItem from="1582101256935" duration="23209000" />
+      <workItem from="1582101256935" duration="23288000" />
+      <workItem from="1582312802865" duration="212000" />
+      <workItem from="1583915880139" duration="20857000" />
+      <workItem from="1584435084068" duration="2000" />
+      <workItem from="1584442370684" duration="63000" />
+      <workItem from="1584812323659" duration="341000" />
+      <workItem from="1584970970044" duration="1549000" />
+      <workItem from="1585054938825" duration="10000" />
+      <workItem from="1585125616028" duration="17107000" />
     </task>
     <task id="LOCAL-00001" summary="Homepage Display">
       <created>1579696671899</created>
@@ -231,7 +254,21 @@
       <option name="project" value="LOCAL" />
       <updated>1579696671899</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="nearly nothing cause i'm dumb">
+      <created>1582129724351</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1582129724351</updated>
+    </task>
+    <task id="LOCAL-00003" summary="To many changes to tell them">
+      <created>1583941744942</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1583941744942</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,36 +276,64 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Homepage Display" />
-    <option name="LAST_COMMIT_MESSAGE" value="Homepage Display" />
+    <MESSAGE value="nearly nothing cause i'm dumb" />
+    <MESSAGE value="To many changes to tell them" />
+    <option name="LAST_COMMIT_MESSAGE" value="To many changes to tell them" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1582128053504">
+    <state x="640" y="248" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1583915887055">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582128053504" />
+    <state x="640" y="248" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583915887055" />
+    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1585142414917">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585142414917" />
+    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583935541039" />
+    <state x="573" y="29" key="CommitChangelistDialog2" timestamp="1585145804817">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="573" y="29" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585145804817" />
+    <state x="573" y="29" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583941742761" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1580912008208">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580912008208" />
-    <state x="578" y="257" key="FileChooserDialogImpl" timestamp="1582122744146">
+    <state x="578" y="257" key="FileChooserDialogImpl" timestamp="1582312993897">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="578" y="257" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1582122744146" />
+    <state x="578" y="257" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1582312993897" />
     <state x="723" y="320" key="NewPhpClassDialog" timestamp="1582124395946">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="723" y="320" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582124395946" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1585131704171">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585131704171" />
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583917133318" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1582119824922">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1582119824922" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1580912008208">
+    <state x="552" y="250" key="Vcs.Push.Dialog.v2" timestamp="1583941747389">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580912008208" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1580912008208">
+    <state x="552" y="250" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583941747389" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1585144298611">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585144298611" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583936491726" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1585126317653">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585126317653" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580912008208" />
+    <state x="639" y="238" width="642" height="564" key="find.popup" timestamp="1585144463463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="639" y="238" width="642" height="564" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585144463463" />
+    <state x="639" y="238" width="642" height="564" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583939785683" />
   </component>
 </project>
