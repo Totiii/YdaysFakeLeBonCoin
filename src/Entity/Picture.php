@@ -103,6 +103,6 @@ class Picture
 
     public function __toString()
     {
-        return (string)$this->getUrl();
+        return (string)$this->getImage();
     }
 }
