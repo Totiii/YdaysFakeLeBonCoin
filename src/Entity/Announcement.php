@@ -45,7 +45,7 @@ class Announcement
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Picture", mappedBy="announcement")
+     * @ORM\OneToMany(targetEntity="App\Entity\Picture", mappedBy="announcement", cascade="remove")
      */
     private $pictures;
 

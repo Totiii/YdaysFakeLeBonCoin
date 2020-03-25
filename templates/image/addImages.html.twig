@@ -1,0 +1,109 @@
+{%  extends 'base.html.twig' %}
+{%  block title %}{% endblock %}
+{%  block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/dropzone/dist/dropzone.css') }}">
+    <style>
+        .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+
+        #img-upload{
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{%  block body %}
+    {{ render(controller('App\\Controller\\HomeController::navBar', {} )) }}
+
+    <div class="container mt-5">
+        <div class="row">
+            <h3 class="ml-3">Let's now add Images to your announcement</h3>
+        </div>
+    </div>
+<div class="container mt-3 border p-4">
+    {{ form_start(form) }}
+    <div class="row mt-4">
+        <div class="col ">
+            {{ form_row(form.imageFile) }}
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">
+            <img id='img-upload' class="img-fluid"/>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">
+            {{ form_row(form.submit) }}
+        </div>
+    </div>
+    {{ form_end(form) }}
+</div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+    <script>
+        $(document).ready( function() {
+            $(document).on('change', '.btn-file :file', function() {
+                var input = $(this),
+                    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                input.trigger('fileselect', [label]);
+            });
+
+            $('.btn-file :file').on('fileselect', function(event, label) {
+
+                var input = $(this).parents('.input-group').find(':text'),
+                    log = label;
+
+                if( input.length ) {
+                    input.val(log);
+                } else {
+                    if( log ) alert(log);
+                }
+
+            });
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#img-upload').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#image_imageFile_file").change(function(){
+                readURL(this);
+            });
+        });
+    </script>
+
+{% endblock %}
+
+
+

@@ -4,15 +4,6 @@
 {%  block body %}
     {{ render(controller('App\\Controller\\HomeController::navBar', {} )) }}
 
-<!--TODO Block access to easy admin for user that are not connected and don't have the role superAdmin -->
-{% if is_granted('ROLE_ADMIN') %}
-    Administrator
-{% elseif is_granted('ROLE_USER') %}
-    User
-{% else %}
-    Anonymous
-{% endif %}
-
     <div class="container mt-5 border p-4">
         <div class="row">
             <h3 class="ml-3">Search</h3>
@@ -55,45 +46,49 @@
         <div class="row">
             <h3 class="">Announcements</h3>
         </div>
-        {% if announcements %}
+        {% if announcements|length > 0 %}
             {% for announcement in announcements %}
-                <div class="row justify-content-md-center mt-3 border" onclick="location.href='{{ path('announcement', {'id': announcement.id }) }}'" style="cursor: pointer">
+                <div class="row justify-content-md-center mt-3 border">
                     <div class="col-md-3 mt-4">
-                        {% if announcement.pictures|length > 1 %}
-                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    {% for picture in announcement.pictures %}
-                                        {% if loop.first %}
-                                            <div class="carousel-item active">
-                                        {% else %}
-                                                <div class="carousel-item">
-                                        {% endif %}
-                                                <img class="d-block w-100" src="{{ picture.Url }}" >
-                                            </div>
-                                    {% endfor %}
+                        {% if announcement.pictures|length > 0 %}
+                            {% if announcement.pictures|length > 1 %}
+                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        {% for picture in announcement.pictures %}
+                                            {% if loop.first %}
+                                                <div class="carousel-item active">
+                                            {% else %}
+                                                    <div class="carousel-item">
+                                            {% endif %}
+                                                    <img class="d-block w-100" src="{{ asset('uploads/images/products/')}}{{picture.image}}" >
+                                                </div>
+                                        {% endfor %}
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
                                 </div>
-                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
+                            {% else %}
+                                {% for picture in announcement.pictures %}
+                                    <img class="img-fluid" src="{{ asset('uploads/images/products/')}}{{picture.image}}">
+                                {% endfor %}
+                            {% endif %}
                         {% else %}
-                            {% for picture in announcement.pictures %}
-                                <img class="img-fluid" src="{{ picture.Url }}">
-                            {% endfor %}
+                            <img class="img-fluid" src="{{ asset('assets/img/no-preview.png')}}">
                         {% endif %}
                     </div>
-                    <div class="col-md-3 mt-1">
+                    <div class="col-md-3 mt-1" onclick="location.href='{{ path('announcement', {'id': announcement.id }) }}'" style="cursor: pointer">
                         <h5>{{ announcement.Name }}</h5>
                         <p>{{ announcement.Price }} € </p>
                         <p class="mt-2">{{ announcement.city.name }}</p>
                         <p>{{ announcement.city.postalCode }}</p>
                     </div>
-                    <div class="col-md-5 mt-2">
+                    <div class="col-md-5 mt-2" onclick="location.href='{{ path('announcement', {'id': announcement.id }) }}'" style="cursor: pointer">
                         <p style="white-space: pre-wrap;">{{ announcement.Description |length > 450 ? announcement.Description|slice(0, 450) ~ '...' : announcement.Description}}</p>
                     </div>
                         <div class="col-md-1">
@@ -103,7 +98,15 @@
                     </div>
                 </div>
             {% endfor %}
-                    {% endif %}
+        {% else %}
+            <div class="row justify-content-md-center mt-3 border">
+                <div class="col mt-4">
+                    <div class="alert alert-warning text-center" role="alert">
+                        No announcement to display
+                    </div>
+                </div>
+            </div>
+        {% endif %}
 
 {% endblock %}
 

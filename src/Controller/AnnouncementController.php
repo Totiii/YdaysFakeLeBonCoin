@@ -3,28 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Announcement;
-use App\Entity\Category;
 use App\Entity\City;
-use App\Entity\Picture;
 use App\Form\AnnouncementType;
 use App\Form\CityType;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Vich\UploaderBundle\Form\Type\VichImageType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
-use Symfony\Component\Form\FormBuilderInterface;
-
-
 
 class AnnouncementController extends AbstractController
 {
@@ -43,14 +31,13 @@ class AnnouncementController extends AbstractController
         $cityForm = $this->createForm(CityType::class, $city);
         $cityForm->handleRequest($request);
 
-
         if ($form->isSubmitted() && $form->isValid()){
             $em = $this->getDoctrine()->getManager();
             $announcement->setUser($user);
             $announcement->setPublishedDate(new \DateTime());
             $em->persist($announcement);
             $em->flush();
-            return $this->redirectToRoute('createCity');
+            return $this->redirectToRoute('addImages', array('id' => $announcement->getId()));
         }
 
         if ($cityForm->isSubmitted() && $cityForm->isValid()){
@@ -59,7 +46,7 @@ class AnnouncementController extends AbstractController
             $em->flush();
         }
 
-        return $this->render('add.html.twig', [
+        return $this->render('announcement/add.html.twig', [
             'form' => $form->createView(),
             'cityForm' => $cityForm->createView()
         ]);
@@ -76,4 +63,46 @@ class AnnouncementController extends AbstractController
             'announcement' => $announcement
         ]);
     }
+
+    /**
+     * @Route("/announcement/{id}/edit", name="editAnnouncement")
+     *
+     * @param Request $request
+     * @param Announcement $announcement
+     * @param EntityManagerInterface $manager
+     * @return Response
+     */
+    public function editAnnouncement(Request $request, Announcement $announcement, EntityManagerInterface $manager){
+        $form = $this->createForm(AnnouncementType::class, $announcement);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager->flush();
+
+            return $this->redirectToRoute('announcement', array('id' => $announcement->getId()));
+        }
+
+        return $this->render('announcement/edit.html.twig', [
+            'form' => $form->createView(),
+            'movie' => $announcement
+        ]);
+    }
+
+    /**
+     * @Route("/announcement/{id}/delete", name="deleteAnnouncement")
+     *
+     * @param Announcement $announcement
+     * @param EntityManagerInterface $manager
+     * @return RedirectResponse
+     */
+    public function deleteAnnouncement(Announcement $announcement, EntityManagerInterface $manager){
+        foreach($announcement->getPictures() as $picture){
+            $manager->remove($picture);
+        }
+        $manager->remove($announcement);
+        $manager->flush();
+
+        return $this->redirectToRoute('home');
+    }
+
 }

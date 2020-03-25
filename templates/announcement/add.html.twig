@@ -128,29 +128,6 @@
 
 {% block javascripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="{{ asset('assets/dropzone/dist/dropzone.js') }}"></script>
-
-
-    <script>
-        Dropzone.autoDiscover = false;
-        Dropzone.options.myAwesomeDropzone = {
-            previewsContainer: ".dropzone-previews",
-            maxFiles: 3,
-            accept: function(file, done) {
-                console.log("uploaded");
-                done();
-            },
-            init: function() {
-                this.on("maxfilesexceeded", function(file){
-                    this.removeFile(file);
-                });
-            }
-        };
-        $('#my-awesome-dropzone').dropzone({
-            previewsContainer: ".dropzone-previews",
-            url: "{{ path('newAnnouncement') }}"
-        });
-    </script>
 
 {% endblock %}
 

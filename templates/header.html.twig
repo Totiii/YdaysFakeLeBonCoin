@@ -1,4 +1,30 @@
-{% if app.user %}
+{% if is_granted('ROLE_ADMIN') %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('home') }}">The Good Corner</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('easyadmin') }}">Admin page</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mx-auto order-0">
+            <a class="btn btn-outline-secondary navbar-brand mx-auto" href="{{ path('newAnnouncement') }}"><i class="fas fa-plus-square"></i> Add an announcement</a>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('userProfile', {'id': app.user.id }) }}">{{ app.user.Firstname }} {{ app.user.Name }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_logout') }}">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% elseif is_granted('ROLE_USER') %}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">

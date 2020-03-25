@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Announcement;
 use App\Entity\Picture;
 use App\Form\ImageType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,22 +23,25 @@ class ImageController extends AbstractController
     }
 
     /**
-     * @Route("/addImages", name="addImages")
+     * @Route("/addImages/{id}", name="addImages")
      * @param Request $request
+     * @param Announcement $announcement
      * @return Response
      */
-    public function addImages(Request $request){
+    public function addImages(Request $request, Announcement $announcement){
         $picture = new Picture();
         $form = $this->createForm(ImageType::class, $picture);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
+            $picture->setAnnouncement($announcement);
             $em = $this->getDoctrine()->getManager();
             $em->persist($picture);
             $em->flush();
+            return $this->redirectToRoute('announcement', array('id' => $announcement->getId()));
         }
 
-        return $this->render('addImages.html.twig', [
+        return $this->render('image/addImages.html.twig', [
             'form' => $form->createView()
         ]);
     }
