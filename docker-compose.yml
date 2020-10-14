@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  php:
+    build: . # Build avec le Dockerfile
+    image: php:7.2.5-apache
+    depends_on:
+      - mysql
+    # Changement du répertoire courant
+    working_dir: /var/www/html/YdaysFakeLeBonCoin
+    volumes:
+      - .:/var/www/html/YdaysFakeLeBonCoin
+    # Définition du port sur lequel écouté, on le lie au port 8080 local "portchoisi:portapache"
+    ports:
+      - "8080:80"
+  phpmyadmin:
+    depends_on:
+      - mysql
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_good_corner
+    restart: always
+    ports:
+      - '8088:80'
+    environment:
+      PMA_HOST: mysql
+  mysql:
+    image: mysql:5.7
+    command:
+      - "--default-authentication-plugin=mysql_native_password"
+      - "--lower_case_table_names=1"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      # Variables d'environnement pour se connecter à la base de données
+      - MYSQL_DATABASE=TheGoodCorner
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+    ports:
+      - "3306:3306"
